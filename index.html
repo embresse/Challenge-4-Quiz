@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css"/> 
+</head>
+
+<body>
+    <!-- header with timer and high score link -->
+    <header>
+    <nav>
+        <div>
+            <button class="results-button" id = "result-button">Score Ranking</button>
+        </div>
+        <ul>
+            <li class="timer" id="timer">Timer: </li>
+        </ul>
+    </nav>
+    </header>
+ <!-- intro page w quiz information -->
+    <section>
+        <div class= "intro-page">
+            <h1>Code Quiz
+            </h1>
+            <p>This is a timed quiz! You will be penalized 5 seconds every time you put in an incorrect answer. 
+               Click start to begin!
+             </p>
+            <button class="button" id = "start-button">START</button>
+         </div>
+    </section>
+ <!-- quiz page with questions and mult choice -->
+    <section class = "quiz-page" id = "quiz-page">
+        <div class = "questions" id = "questions"></div>
+        <ul class = "answer-style">
+            <li><button class = "answer" id="A1" value = "a"></button></li>
+            <li><button class = "answer" id="A2" value = "b"></button></li>
+            <li><button class = "answer" id="A3" value = "c"></button></li>
+            <li><button class = "answer" id="A4" value = "d"></button></li>
+        </ul>
+
+        <div id="check-answer">
+            <p>Correct or Incorrect</p>
+
+        </div>
+    </section>
+
+ <!--score page -->
+    <section class = "high-score-page" id = "high-score-page">
+        <div class = "score" id = "score"> </div>
+        <form>
+            <label for="initials">Initials</label><br>
+            <input type="text" id="initials-entry"> <br>
+        </form>
+        <button class="button" id="save-score">SAVE</button>
+    </section>
+
+<!-- results page -->
+    <section class = "results" id = "results-page">
+        <h2>High Scores !</h2>
+        <div id="score-record"> <p>Your results</p>
+        </div>
+        <button class = "button" id = "clear-button">CLEAR</button>
+        <button class="button" id="go-back">BACK</button>
+
+    </section>
+
+
+
+ <script src="./assets/script.js"></script>
+
+</body>
+</html>
