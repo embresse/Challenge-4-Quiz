@@ -67,7 +67,7 @@ p, .quiz-page {
   cursor: pointer;
 }
 
-.quiz-page, .high-score-page, #check-answer, .results {
+.quiz-page, .score-page, #check-answer, .results {
     display: none;
 }
 

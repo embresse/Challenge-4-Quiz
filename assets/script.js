@@ -13,7 +13,7 @@ var quizAnswerB = document.querySelector ("#A2");
 var quizAnswerC = document.querySelector ("#A3");
 var quizAnswerD = document.querySelector ("#A4");
 
-var highScorePage = document.querySelector("#high-score-page");
+var scorePage = document.querySelector("#score-page");
 var initials = document.querySelector ("#initials");
 var scoreValue = document.querySelector ("#score");
 var saveScoreButton = document.querySelector ("#save-score");
@@ -126,7 +126,7 @@ questionCount++;
 
 function gameOver () {
     quizPage.style.display = "none";
-    highScorePage.style.display = "block";
+    scorePage.style.display = "block";
     scoreValue.textContent = "Your final score is... " + scoreTotal;
     timeEl.style.display = "none";
     resultsPage.style.display = "none";
@@ -171,7 +171,7 @@ quizAnswerD.addEventListener ("click", checkAnswers);
 
 goBackButton.addEventListener ("click", function (event){
     event.preventDefault();
-    highScorePage.style.display = "none";
+    scorePage.style.display = "none";
     quizPage.style.display = "none";
     introPage.style.display = "block";
     location.reload ();
@@ -180,7 +180,7 @@ goBackButton.addEventListener ("click", function (event){
 
 saveScoreButton.addEventListener ("click", function (event){
     event.preventDefault();
-    highScorePage.style.display = "none";
+    scorePage.style.display = "none";
     quizPage.style.display = "none";
     introPage.style.display = "none";
     resultsPage.style.display = "block";
@@ -189,7 +189,7 @@ saveScoreButton.addEventListener ("click", function (event){
 })
 
 scoreResults.addEventListener ("click", function(event) {
-    highScorePage.style.display = "none";
+    scorePage.style.display = "none";
     quizPage.style.display = "none";
     introPage.style.display = "none";
     resultsPage.style.display = "block";
