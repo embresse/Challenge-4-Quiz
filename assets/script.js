@@ -30,23 +30,29 @@ var initialsEntry = document.getElementById("initials-entry")
 var questionSource = [
     {
         question: "String values must be enclosed within _____ when being assigned to variables.",
-        choices: ["a. commas", "b. curly brackets", "c. quotes", "d. parenthesis"],
-        answer: "c"
+        choices: ["a. quotes", "b. curly brackets", "c. commas", "d. parenthesis"],
+        answer: "a"
     },
     {
         question: "Commonly used data types DO NOT include:",
-        choices: ["a. strings", "b. booleans", "c. alerts", "d. numbers"],
+        choices: ["a. strings", "b. booleans", "c. prompts", "d. numbers"],
         answer: "c"
     },
     {
-        question: "How do you create a function in JavaScript",
-        choices: ["a. function = myFunction()", "b. function myFunction()", "c. function:myFunction()", "d. createMyFunction()"],
+        question: "How do you create a function called renderMessage in JavaScript",
+        choices: ["a. function = renderMessage", "b. function renderMessage()", "c. function = RenderMessage()", "d. createFunction = renderMessage()"],
         answer: "b"
     },
     {
-        question: "How do you call a function named myFunction?",
-        choices: ["a. call myFunction()", "b. call function myFunction()", "c. myFunction()", "d. call myFunction"],
+        question: "How do you call a function name renderMessage?",
+        choices: ["a. run renderMessage()", "b. call renderMessage()", "c. renderMessage()", "d. var = renderMessage"],
         answer: "c"
+    },
+    {
+        question: "How do you pull an ID from your HTML?",
+        choices: ["a. getElementById('id')", "b. document.getElementById('#id')", "c. document.querySelect('#id')", "d. document.getElementById('id')" ],
+        answer: "d"
+
     }
 ];
 
@@ -136,7 +142,7 @@ function gameOver () {
 
 function saveScore () {
    highScoreEntry = document.createElement("h3")
-   highScoreEntry= initialsEntry.value.trim()
+   highScoreEntry.textContent= initialsEntry.value + " - " + scoreTotal
    console.log(highScoreEntry)
    scoreRecord.appendChild(highScoreEntry)
   
@@ -150,10 +156,6 @@ function saveScore () {
       highscores.push(entry);
       localStorage.setItem("highscores", JSON.stringify(highscores));
     console.log (highScoreEntry)
-
-}
-
-function renderScore () {
 
 }
 
