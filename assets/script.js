@@ -22,7 +22,7 @@ var checkAnswer = document.querySelector ("#check-answer");
 
 var resultsPage = document.querySelector ("#results-page");
 var scoreRecord = document.querySelector ("#score-record");
-var clearButton = document.querySelector("#clear-button");
+var clearButton = document.getElementById("clear-button");
 
 var initialsEntry = document.getElementById("initials-entry")
 
@@ -143,21 +143,20 @@ function gameOver () {
 function saveScore () {
    highScoreEntry = document.createElement("h3")
    highScoreEntry.textContent= initialsEntry.value + " - " + scoreTotal
-   console.log(highScoreEntry)
-   scoreRecord.appendChild(highScoreEntry)
-  
-    var highscores = JSON.parse(localStorage.getItem(entry, "highscores")) || [];
-    
-      var entry = {
-        score: scoreTotal,
-        initials: initialsEntry,
-      };
-    
-      highscores.push(entry);
-      localStorage.setItem("highscores", JSON.stringify(highscores));
-    console.log (highScoreEntry)
+   scoreRecord.appendChild(highScoreEntry);
 
-}
+   var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+    
+   var entry = {
+     score: scoreTotal,
+     initials: initialsEntry.value,
+   };
+ 
+   highscores.push(entry);
+   localStorage.setItem("highscores", JSON.stringify(highscores));
+   console.log (highscores)
+
+};
 
 
 // EVENT LISTENERS 
@@ -176,7 +175,7 @@ goBackButton.addEventListener ("click", function (event){
     introPage.style.display = "block";
     location.reload ();
 
-})
+});
 
 saveScoreButton.addEventListener ("click", function (event){
     event.preventDefault();
@@ -186,7 +185,7 @@ saveScoreButton.addEventListener ("click", function (event){
     resultsPage.style.display = "block";
     saveScore();
 
-})
+});
 
 scoreResults.addEventListener ("click", function(event) {
     scorePage.style.display = "none";
@@ -194,31 +193,12 @@ scoreResults.addEventListener ("click", function(event) {
     introPage.style.display = "none";
     resultsPage.style.display = "block";
 
-})
+});
 
 
 clearButton.addEventListener ("click", function (event){
     event.preventDefault();
     localStorage.clear();
-})
-
-
-
-
-
-// function saveScore() {
-//   var initials = initialsEl.value;
-  
-//   var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
-
-//   var entry = {
-//     score: score,
-//     initials: initials,
-//   };
-
-//   highscores.push(entry);
-//   localStorage.setItem("highscores", JSON.stringify(highscores));
-  
-// }
+});
 
 
