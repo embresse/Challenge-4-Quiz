@@ -140,7 +140,7 @@ function saveScore () {
    console.log(highScoreEntry)
    scoreRecord.appendChild(highScoreEntry)
   
-    var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
+    var highscores = JSON.parse(localStorage.getItem(entry, "highscores")) || [];
     
       var entry = {
         score: scoreTotal,
@@ -191,7 +191,6 @@ scoreResults.addEventListener ("click", function(event) {
     quizPage.style.display = "none";
     introPage.style.display = "none";
     resultsPage.style.display = "block";
-    renderScore();
 
 })
 
@@ -199,7 +198,6 @@ scoreResults.addEventListener ("click", function(event) {
 clearButton.addEventListener ("click", function (event){
     event.preventDefault();
     localStorage.clear();
-    renderScore();
 })
 
 
