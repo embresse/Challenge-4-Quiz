@@ -24,7 +24,7 @@ var resultsPage = document.querySelector ("#results-page");
 var scoreRecord = document.querySelector ("#score-record");
 var clearButton = document.querySelector("#clear-button");
 
-var initialsEntry = document.querySelector("#initials-entry")
+var initialsEntry = document.getElementById("initials-entry")
 
 
 var questionSource = [
@@ -136,14 +136,15 @@ function gameOver () {
 
 function saveScore () {
    highScoreEntry = document.createElement("h3")
-   highScoreEntry= initialsEntry.textContent 
+   highScoreEntry= initialsEntry.value.trim()
+   console.log(highScoreEntry)
    scoreRecord.appendChild(highScoreEntry)
   
     var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
     
       var entry = {
-        score: score,
-        initials: initials,
+        score: scoreTotal,
+        initials: initialsEntry,
       };
     
       highscores.push(entry);
@@ -156,9 +157,6 @@ function renderScore () {
 
 }
 
-function sortScore () {
-
-}
 
 // EVENT LISTENERS 
 startButton.addEventListener ("click", genQuiz);
