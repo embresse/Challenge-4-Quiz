@@ -70,18 +70,18 @@ var questionCount = 1;
 // functions 
 
 function timerCountdown () {
-    var timerInterval = setInterval(function() {
+    timerInterval = setInterval(function() {
         secondsLeft--;
         timeEl.textContent = secondsLeft + " seconds remaining!";
 
         if(secondsLeft === 0) {
             clearInterval(timerInterval);
             timeEl.textContent = "You're outta time!"
-            gameOver();
-        } else if (questionCount >= questionSource.length +1) {
-            clearInterval(timerInterval);
-            gameOver();
-            } 
+            gameOver();}
+        // } else if (questionCount >= questionSource.length +1) {
+        //     clearInterval(timerInterval);
+        //     gameOver();
+        //     } 
         
     }, 1000);
 
@@ -136,15 +136,12 @@ function gameOver () {
     scoreValue.textContent = "Your final score is... " + scoreTotal;
     timeEl.style.display = "none";
     resultsPage.style.display = "none";
+    clearInterval(timerInterval);
 
 }
 
 
 function saveScore () {
-   highScoreEntry = document.createElement("h3")
-//    highScoreEntry.textContent= initialsEntry.value + " - " + scoreTotal
-//    scoreRecord.appendChild(highScoreEntry);
-
    var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
     
    var entry = {
@@ -209,3 +206,4 @@ clearButton.addEventListener ("click", function (event){
 });
 
 
+// https://calendly.com/fsf-tutor-team/david-elutilo
