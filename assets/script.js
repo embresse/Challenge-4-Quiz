@@ -142,8 +142,8 @@ function gameOver () {
 
 function saveScore () {
    highScoreEntry = document.createElement("h3")
-   highScoreEntry.textContent= initialsEntry.value + " - " + scoreTotal
-   scoreRecord.appendChild(highScoreEntry);
+//    highScoreEntry.textContent= initialsEntry.value + " - " + scoreTotal
+//    scoreRecord.appendChild(highScoreEntry);
 
    var highscores = JSON.parse(localStorage.getItem("highscores")) || [];
     
@@ -156,7 +156,13 @@ function saveScore () {
    localStorage.setItem("highscores", JSON.stringify(highscores));
    console.log (highscores)
 
-};
+   for (var i = 0; i < highscores.length; i += 1) {
+    // create li tag for each high score
+    var h3Tag = document.createElement('h3');
+    h3Tag.textContent = highscores[i].initials + ' - ' + highscores[i].score;
+
+    scoreRecord.appendChild(h3Tag);
+}};
 
 
 // EVENT LISTENERS 
@@ -188,6 +194,7 @@ saveScoreButton.addEventListener ("click", function (event){
 });
 
 scoreResults.addEventListener ("click", function(event) {
+    event.preventDefault();
     scorePage.style.display = "none";
     quizPage.style.display = "none";
     introPage.style.display = "none";
